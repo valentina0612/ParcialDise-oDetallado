@@ -1,40 +1,48 @@
 public class MetodoBurbuja {
 /**
  * Método que ordena un arreglo de enteros de menor a mayor
- * @param arreglo Arreglo de enteros a ordenar
+ * @param numeros Arreglo de enteros a ordenar
  * @return Arreglo de enteros ordenado
  */
-    int[] ordenamientoBurbuja(int[] arreglo) {
-        for (int i = 0; i < arreglo.length - 1; i++) {
-            for (int j = 0; j < arreglo.length - i - 1; j++) {
-                if (arreglo[j] > arreglo[j + 1]) {
-                    int temp = arreglo[j];
-                    arreglo[j] = arreglo[j + 1];
-                    arreglo[j + 1] = temp;
+    int[] ordenamientoBurbuja(int[] numeros) {
+        boolean intercambio;
+        do {
+            intercambio = false;
+            for (int indice = 0; indice < numeros.length - 1; indice++) {
+                if (numeros[indice] > numeros[indice + 1]) {
+                    int numeroTemporal = numeros[indice];
+                    numeros[indice] = numeros[indice + 1];
+                    numeros[indice + 1] = numeroTemporal;
+                    intercambio = true;
                 }
             }
-        }
-        return arreglo;
+        } while (intercambio);
+        return numeros;
     }
+
 
 /**
  * Método que ordena un arreglo de cadenas de texto de menor a mayor
- * @param arreglo Arreglo de cadenas de texto a ordenar
+ * @param nombres Arreglo de cadenas de texto a ordenar
  * @return Arreglo de cadenas de texto ordenado
  * */
 
-    String[] ordenamientoBurbuja(String[] arreglo) {
-        for (int x = 0; x < arreglo.length; x++) {
-            for (int y = 0; y < arreglo.length - 1; y++) {
-                String elementoActual = arreglo[y],
-                        elementoSiguiente = arreglo[y + 1];
+    String[] ordenamientoBurbuja(String[] nombres) {
+        boolean intercambio;
+        do {
+            intercambio = false;
+            for (int indice = 0; indice < nombres.length - 1; indice++) {
+                String elementoActual = nombres[indice];
+                String elementoSiguiente = nombres[indice + 1];
                 if (elementoActual.compareTo(elementoSiguiente) > 0) {
-                    arreglo[y] = elementoSiguiente;
-                    arreglo[y + 1] = elementoActual;
+                    nombres[indice] = elementoSiguiente;
+                    nombres[indice + 1] = elementoActual;
+                    intercambio = true;
+                    }
                 }
-            }
+            } while (intercambio);
+            return nombres;
         }
-        return arreglo;
-    }
+
 }
 
